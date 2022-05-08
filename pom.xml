@@ -8,6 +8,7 @@
         <module>wxy-oa-backend</module>
         <module>wxy-oa-getway</module>
         <module>wxy-oa-common</module>
+        <module>wxy-oa-workflow</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
