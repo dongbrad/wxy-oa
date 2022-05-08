@@ -1,4 +1,4 @@
-﻿	window.onload = function () {
+	window.onload = function () {
 			var paper = Raphael("holder");
 
 			//var curve = paper.ellipse(100, 100, 1, 1).attr({"stroke-width": 0, fill: Color.red});
