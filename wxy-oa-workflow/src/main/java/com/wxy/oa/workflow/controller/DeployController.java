@@ -5,6 +5,7 @@ import io.swagger.annotations.*;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +26,8 @@ import java.util.zip.ZipInputStream;
 @Api(tags="部署流程、删除流程")
 public class DeployController {
 
-    private final RepositoryService repositoryService;
+    @Autowired
+    private RepositoryService repositoryService;
 
     public DeployController(RepositoryService repositoryService) {
         this.repositoryService = repositoryService;
@@ -53,7 +55,7 @@ public class DeployController {
         }
 
         if (deployment != null) {
-            Map<String, String> result = new HashMap<>(2);
+            Map<String, String> result = new HashMap(2);
             result.put("deployID", deployment.getId());
             result.put("deployName", deployment.getName());
             restMessgae = RestMessgae.success("部署成功", result);
@@ -84,7 +86,7 @@ public class DeployController {
             e.printStackTrace();
         }
         if (deployment != null) {
-            Map<String, String> result = new HashMap<>(2);
+            Map<String, String> result = new HashMap(2);
             result.put("deployID", deployment.getId());
             result.put("deployName", deployment.getName());
             restMessgae = RestMessgae.success("部署成功", result);
